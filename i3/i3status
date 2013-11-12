@@ -9,8 +9,9 @@ general {
 
 order += "wireless wlan0"
 order += "ethernet eth0"
+order += "ethernet eth1"
 order += "run_watch DHCP"
-order += "battery 1"
+order += "battery 0"
 order += "volume master"
 order += "load"
 order += "time"
@@ -26,6 +27,12 @@ ethernet eth0 {
         format_down = "E"
 }
 
+ethernet eth1 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip"
+        format_down = "E"
+}
+
 run_watch DHCP {
         pidfile = "/var/run/dhclient*.pid"
         format = "DHCP"
@@ -33,7 +40,7 @@ run_watch DHCP {
 
 battery 0 {
         last_full_capacity = true
-        format = "%percentage %remaining"
+        format = "B: %percentage %remaining"
 }
 
 time {
@@ -41,7 +48,7 @@ time {
 }
 
 load {
-        format = "%1min %5min %15min"
+        format = "L:%1min %5min %15min"
 }
 
 volume master {

@@ -9,7 +9,8 @@ client.urgent           #FF0000 #000000 #ff0000 #440000
 set $mod Mod4
 
 # font for window titles.
-font pango:Liberation Sans 10
+#font pango:Liberation Sans 10
+font Courier New 10
 
 # Startup Applications
 exec_always --no-startup-id nitrogen --restore &  # Start Nitrogen Wallpaper Manager
@@ -27,10 +28,15 @@ bindsym $mod+m exec terminator -e 'vlc -I curses --browse-dir /home/mark/'
 # start vim
 bindsym $mod+Shift+Return exec terminator -e 'vim'
 
-# Bindings for Alsamixer
+# Bindings for Alsamixer / Spotify
 bindsym XF86AudioMute exec amixer -c 0 set Master toggle # Mute/Unmute
 bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1dB+
 bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1dB-
+
+bindsym XF86Launch1 exec /home/mark/bin/spotify_playpause
+bindsym XF86AudioPlay exec /home/mark/bin/spotify_playpause
+bindsym XF86AudioPrev exec /home/mark/bin/spotify_previous
+bindsym XF86AudioNext exec /home/mark/bin/spotify_next
 
 # Lock Screen
 bindsym $mod+numbersign exec xscreensaver-command -lock
@@ -88,9 +94,9 @@ bindsym $mod+3 workspace "3: Work"
 bindsym $mod+4 workspace "4: Work"
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace "9: Comms"
+bindsym $mod+7 workspace "7: IRC"
+bindsym $mod+8 workspace "8: Chat"
+bindsym $mod+9 workspace "9: Email"
 bindsym $mod+0 workspace "10: Media"
 
 # move focused container to workspace
@@ -100,9 +106,9 @@ bindsym $mod+Shift+sterling move container to workspace "3: Work"
 bindsym $mod+Shift+dollar move container to workspace "4: Work"
 bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+asciicircum move container to workspace 6
-bindsym $mod+Shift+ampersand move container to workspace 7
-bindsym $mod+Shift+asterisk move container to workspace 8
-bindsym $mod+Shift+parenleft move container to workspace "9: Comms"
+bindsym $mod+Shift+ampersand move container to workspace "7: IRC"
+bindsym $mod+Shift+asterisk move container to workspace "8: Chat"
+bindsym $mod+Shift+parenleft move container to workspace "9: Email"
 bindsym $mod+Shift+parenright move container to workspace "10: Media"
 
 # move workspace to different screen
@@ -114,7 +120,8 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+#bindsym $mod+Shift+E exit
+bindsym $mod+Shift+E exec /home/mark/bin/i3_exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

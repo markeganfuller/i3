@@ -31,7 +31,7 @@ bindsym $mod+Return exec terminator
 bindsym $mod+m exec terminator -e 'vlc -I curses --browse-dir /home/mark/'
 
 # vim all the things!
-bindsym $mod+Shift+Return exec terminator -e '/home/mark/bin/vatt'
+bindsym $mod+Shift+Return exec /home/mark/bin/vatt
 
 # Bindings for Alsamixer / Spotify
 bindsym XF86AudioMute exec amixer -c 0 set Master toggle # Mute/Unmute

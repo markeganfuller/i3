@@ -11,7 +11,7 @@ order += "wireless wlan0"
 order += "ethernet eth0"
 order += "ethernet eth1"
 order += "run_watch DHCP"
-order += "battery 0"
+order += "battery 1"
 order += "volume master"
 order += "load"
 order += "time"
@@ -38,7 +38,7 @@ run_watch DHCP {
         format = "DHCP"
         }
 
-battery 0 {
+battery 1 {
         last_full_capacity = true
         format = "B: %percentage %remaining"
 }

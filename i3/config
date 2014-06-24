@@ -1,9 +1,9 @@
 # i3 config file (v4)
 
 # class                 border  backgr. text    indicator
-client.focused          #DD9000 #DD9000 #000000 #440000
-client.focused_inactive #DD9000 #000000 #DD9000 #440000
-client.unfocused        #DD9000 #000000 #DD9000 #440000
+client.focused          #FF7E00 #FF7E00 #000000 #440000
+client.focused_inactive #FF7E00 #000000 #DD9000 #440000
+client.unfocused        #FF7E00 #000000 #FF7E00 #440000
 client.urgent           #FF0000 #000000 #ff0000 #440000
 
 set $mod Mod4
@@ -153,14 +153,13 @@ bindsym $mod+r mode "resize"
 bar {
         colors {
             background  #000000
-            statusline  #DD9000
+            statusline  #FF7E00
             # Border, Back, Font
-            focused_workspace  #000000 #DD9000 #000000
-            active_workspace   #DD9000 #000000 #DD9000
-            inactive_workspace #000000 #000000 #DD9000
+            focused_workspace  #000000 #FF7E00 #000000
+            active_workspace   #FF7E00 #000000 #FF7E00
+            inactive_workspace #000000 #000000 #FF7E00
             urgent_workspace   #FF0000 #000000 #FF0000
         }
         tray_output none
         status_command py3status -c ~/.i3/i3status -i ~/.i3
-#        status_command i3status -c ~/.i3/i3status
 }

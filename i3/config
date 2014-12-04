@@ -10,7 +10,7 @@ set $mod Mod4
 
 # font for window titles.
 #font pango:Liberation Sans 10
-font Courier New 10
+font pango:Dejavu Sans Mono Book 10
 
 # Startup Applications
 # Start Nitrogen Wallpaper Manager
@@ -18,7 +18,7 @@ exec_always --no-startup-id nitrogen --restore &
 # Start X Screen Saver (So we can lock with it)
 exec_always --no-startup-id xscreensaver -no-splash &
 # Setup Displays (needs to be done after nitrogen start)
-exec_always --no-startup-id /home/mark/bin/sud &
+#exec_always --no-startup-id /home/mark/bin/sud &
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -27,21 +27,17 @@ floating_modifier $mod
 bindsym $mod+Return exec terminator
 #i3-sensible-terminal
 
-# start vlc (in term)
-bindsym $mod+m exec terminator -e 'vlc -I curses --browse-dir /home/mark/'
-
 # vim all the things!
 bindsym $mod+Shift+Return exec /home/mark/bin/vatt
 
 # Bindings for Alsamixer / Spotify
-bindsym XF86AudioMute exec amixer -c 0 set Master toggle # Mute/Unmute
-bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1dB+
-bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1dB-
+bindsym $mod+m exec amixer set Master toggle # Mute/Unmute
+bindsym $mod+Up exec amixer -q sset Master 1%+
+bindsym $mod+Down exec amixer -q sset Master 1%-
 
-bindsym XF86Launch1 exec /home/mark/bin/spotify_playpause
-bindsym XF86AudioPlay exec /home/mark/bin/spotify_playpause
-bindsym XF86AudioPrev exec /home/mark/bin/spotify_previous
-bindsym XF86AudioNext exec /home/mark/bin/spotify_next
+bindsym $mod+slash exec /home/markeganfuller/bin/spotify_playpause
+bindsym $mod+comma exec /home/markeganfuller/bin/spotify_previous
+bindsym $mod+period exec /home/markeganfuller/bin/spotify_next
 
 # Lock Screen
 bindsym $mod+numbersign exec xscreensaver-command -lock
@@ -93,28 +89,28 @@ bindsym $mod+a focus parent
 #bindcode $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace "1: Web"
-bindsym $mod+2 workspace "2: Web"
-bindsym $mod+3 workspace "3: Work"
-bindsym $mod+4 workspace "4: Work"
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace "7: IRC"
-bindsym $mod+8 workspace "8: Chat"
-bindsym $mod+9 workspace "9: Email"
-bindsym $mod+0 workspace "10: Media"
+bindsym $mod+1 workspace "01"
+bindsym $mod+2 workspace "02"
+bindsym $mod+3 workspace "03"
+bindsym $mod+4 workspace "04"
+bindsym $mod+5 workspace "05"
+bindsym $mod+6 workspace "06"
+bindsym $mod+7 workspace "07"
+bindsym $mod+8 workspace "08"
+bindsym $mod+9 workspace "09"
+bindsym $mod+0 workspace "10"
 
 # move focused container to workspace
-bindsym $mod+Shift+exclam move container to workspace "1: Web"
-bindsym $mod+Shift+quotedbl move container to workspace "2: Web"
-bindsym $mod+Shift+sterling move container to workspace "3: Work"
-bindsym $mod+Shift+dollar move container to workspace "4: Work"
-bindsym $mod+Shift+percent move container to workspace 5
-bindsym $mod+Shift+asciicircum move container to workspace 6
-bindsym $mod+Shift+ampersand move container to workspace "7: IRC"
-bindsym $mod+Shift+asterisk move container to workspace "8: Chat"
-bindsym $mod+Shift+parenleft move container to workspace "9: Email"
-bindsym $mod+Shift+parenright move container to workspace "10: Media"
+bindsym $mod+Shift+exclam      move container to workspace  "01"
+bindsym $mod+Shift+quotedbl    move container to workspace  "02"
+bindsym $mod+Shift+sterling    move container to workspace  "03"
+bindsym $mod+Shift+dollar      move container to workspace  "04"
+bindsym $mod+Shift+percent     move container to workspace  "05"
+bindsym $mod+Shift+asciicircum move container to workspace  "06"
+bindsym $mod+Shift+ampersand   move container to workspace  "07"
+bindsym $mod+Shift+asterisk    move container to workspace  "08"
+bindsym $mod+Shift+parenleft   move container to workspace  "09"
+bindsym $mod+Shift+parenright  move container to workspace  "10"
 
 # move workspace to different screen
 bindsym $mod+Shift+p move workspace to output right
@@ -126,7 +122,7 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+E exit
-bindsym $mod+Shift+E exec /home/mark/bin/i3_exit
+bindsym $mod+Shift+E exec /home/markeganfuller/bin/i3_exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

@@ -18,4 +18,4 @@ class Py3status:
 
         response['full_text'] = "M: %d%%" % total
 
-        return (-1, response)
+        return (-2, response)

@@ -12,6 +12,9 @@ set $mod Mod4
 #font pango:Liberation Sans 10
 font pango:Dejavu Sans Mono Book 10
 
+# Disable window titles
+new_window 1pixel
+
 # Startup Applications
 # Start Nitrogen Wallpaper Manager
 exec_always --no-startup-id nitrogen --restore &
@@ -157,5 +160,5 @@ bar {
             urgent_workspace   #FF0000 #000000 #FF0000
         }
         tray_output none
-        status_command py3status -c ~/.i3/i3status -i ~/.i3
+        status_command py3status -c ~/.i3/i3status -i ~/.i3 -t 0
 }

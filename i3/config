@@ -2,9 +2,9 @@
 
 # class                 border  backgr. text    indicator
 client.focused          #FF7E00 #FF7E00 #000000 #440000
-client.focused_inactive #FF7E00 #000000 #DD9000 #440000
-client.unfocused        #FF7E00 #000000 #FF7E00 #440000
-client.urgent           #FF0000 #000000 #ff0000 #440000
+client.focused_inactive #FF7E00 #222222 #DD9000 #440000
+client.unfocused        #FF7E00 #222222 #FF7E00 #440000
+client.urgent           #FF0000 #FF0000 #ff0000 #440000
 
 set $mod Mod4
 

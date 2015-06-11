@@ -7,10 +7,10 @@ general {
         interval = 1
 }
 
-order += "wireless wlp3s0"
-order += "ethernet enp0s25"
+#order += "wireless wlp3s0"
+order += "ethernet eno1"
 order += "run_watch DHCP"
-order += "battery 0"
+#order += "battery 0"
 order += "volume master"
 order += "load"
 order += "time"
@@ -37,7 +37,7 @@ battery 0 {
 }
 
 time {
-        format = "%Y-%m-%d %H:%M:%S %z"
+        format = "%Y-%m-%d %H:%M:%S"
 }
 
 load {

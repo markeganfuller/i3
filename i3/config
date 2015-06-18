@@ -31,12 +31,12 @@ bindsym $mod+Return exec terminator
 #i3-sensible-terminal
 
 # vim all the things!
-bindsym $mod+Shift+Return exec /home/mark/bin/vatt
+bindsym $mod+Shift+Return exec /home/markeganfuller/bin/vatt
 
 # Bindings for Alsamixer / Spotify
-bindsym $mod+m exec amixer set Master toggle # Mute/Unmute
-bindsym $mod+Up exec amixer -q sset Master 1%+
-bindsym $mod+Down exec amixer -q sset Master 1%-
+bindsym $mod+m exec amixer -c 1 set Master toggle # Mute/Unmute
+bindsym $mod+Up exec amixer -c 1 -q sset Master 1%+
+bindsym $mod+Down exec amixer -c 1 -q sset Master 1%-
 
 bindsym $mod+slash exec /home/markeganfuller/bin/spotify_playpause
 bindsym $mod+comma exec /home/markeganfuller/bin/spotify_previous

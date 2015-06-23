@@ -1,49 +1,74 @@
+import i3pystatus
 import psutil
 
 
-class Py3status:
-    """
-    System status in i3bar
-    """
+class MemFree(i3pystatus.IntervalModule):
+    color_up = "#00F000"
+    color_critical = "#E50000"
+    color_down = "#333333"
+    settings = (
+        ("color_up", ""),
+        ("color_critical", ""),
+        ("color_down", "")
+    )
 
-    def free(self, json, i3status_config):
+    def run(self):
         response = {'full_text': '', 'name': 'ram'}
         total = psutil.phymem_usage().percent
         if total < 1:
-            response['color'] = i3status_config['color_bad']
+            response['color'] = self.color_down
         elif total < 50:
-            response['color'] = i3status_config['color_good']
+            response['color'] = self.color_up
         else:
-            response['color'] = i3status_config['color_degraded']
+            response['color'] = self.critical_color
 
         response['full_text'] = "M: %d%%" % total
+        self.output = response
 
-        return (-2, response)
 
-    def swap(self, json, i3status_config):
+class SwapFree(i3pystatus.IntervalModule):
+    color_up = "#00F000"
+    color_critical = "#E50000"
+    color_down = "#333333"
+    settings = (
+        ("color_up", ""),
+        ("color_critical", ""),
+        ("color_down", "")
+    )
+
+    def run(self):
         response = {'full_text': '', 'name': 'swap'}
         total = psutil.swap_memory().percent
         if total < 1:
-            response['color'] = i3status_config['color_bad']
+            response['color'] = self.color_down
         elif total < 50:
-            response['color'] = i3status_config['color_good']
+            response['color'] = self.color_up
         else:
-            response['color'] = i3status_config['color_degraded']
+            response['color'] = self.critical_color
 
         response['full_text'] = "S: %d%%" % total
+        self.output = response
 
-        return (-2, response)
 
-    def tempfs(self, json, i3status_config):
+class TempfsFree(i3pystatus.IntervalModule):
+    color_up = "#00F000"
+    color_critical = "#E50000"
+    color_down = "#333333"
+    settings = (
+        ("color_up", ""),
+        ("color_critical", ""),
+        ("color_down", "")
+    )
+
+    def run(self):
         response = {'full_text': '', 'name': 'tempfs'}
         total = psutil.disk_usage('/home/markeganfuller/VirtualBoxVMs/').percent
         if total < 1:
-            response['color'] = i3status_config['color_bad']
+            response['color'] = self.color_down
         elif total < 50:
-            response['color'] = i3status_config['color_good']
+            response['color'] = self.color_up
         else:
-            response['color'] = i3status_config['color_degraded']
+            response['color'] = self.color_critical
 
         response['full_text'] = "T: %d%%" % total
-
-        return (-2, response)
+        self.output = response

@@ -20,7 +20,9 @@ status.register(mem.MemFree, color_up=color_good, color_down=color_off,
 status.register(vms, color_up=color_good, color_down=color_off)
 status.register("runwatch", name="DHCP", path="/var/run/dhcpcd*.pid",
                 color_up=color_good, color_down=color_off)
-status.register("network", interface="eno1", format_up="E:{v4}",
-                format_down="E", color_up=color_good, color_down=color_off)
+status.register("network", interface="eno1", format_up="E:{v4} {v6}",
+                format_down="E", color_up=color_good, color_down=color_off,
+                on_leftclick=None, on_rightclick=None, on_upscroll=None,
+                on_downscroll=None)
 
 status.run()

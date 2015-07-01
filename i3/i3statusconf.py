@@ -1,6 +1,7 @@
 import i3pystatus
 import vms
 import mem
+import temps
 
 status = i3pystatus.Status(standalone=True)
 
@@ -9,6 +10,8 @@ color_bad = "#E50000"
 color_off = "#333333"
 
 status.register("clock", format="%Y-%m-%d %H:%M:%S %z")
+status.register(temps.OnboardTemp)
+status.register(temps.WeatherTemp)
 status.register("load", format="{avg1} {avg5} {avg15}",
                 critical_color=color_bad)
 status.register(mem.TempfsFree, color_up=color_good, color_down=color_off,

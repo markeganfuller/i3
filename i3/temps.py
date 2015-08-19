@@ -40,6 +40,7 @@ class OnboardTemp(i3pystatus.IntervalModule):
     color_hot = "#F00000"
     color_norm = "#FF7E00"
     color_cold = "#3333F0"
+    interval = 120
     settings = (
         ("color_hot", "Color when its hot"),
         ("color_norm", "Color when its norm"),

@@ -115,6 +115,10 @@ bindsym $mod+Shift+asterisk    move container to workspace  "08"
 bindsym $mod+Shift+parenleft   move container to workspace  "09"
 bindsym $mod+Shift+parenright  move container to workspace  "10"
 
+# move window to and from scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # move workspace to different screen
 bindsym $mod+Shift+p move workspace to output right
 bindsym $mod+Shift+u move workspace to output left

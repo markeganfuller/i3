@@ -6,6 +6,7 @@ class MemFree(i3pystatus.IntervalModule):
     color_up = "#00F000"
     color_critical = "#E50000"
     color_down = "#333333"
+    interval = 60
     settings = (
         ("color_up", ""),
         ("color_critical", ""),
@@ -30,6 +31,7 @@ class SwapFree(i3pystatus.IntervalModule):
     color_up = "#00F000"
     color_critical = "#E50000"
     color_down = "#333333"
+    interval = 60
     settings = (
         ("color_up", ""),
         ("color_critical", ""),
@@ -54,6 +56,7 @@ class TempfsFree(i3pystatus.IntervalModule):
     color_up = "#00F000"
     color_critical = "#E50000"
     color_down = "#333333"
+    interval = 60
     settings = (
         ("color_up", ""),
         ("color_critical", ""),

@@ -5,6 +5,7 @@ import subprocess
 class VMs(i3pystatus.IntervalModule):
     color_up = "#00F000"
     color_down = "#333333"
+    interval = 120
     settings = (
         ("color_up", "Color when VMs are running"),
         ("color_down", "Color when VMs are stopped")

@@ -2,6 +2,7 @@ import i3pystatus
 import vms
 import mem
 import temps
+import tmuxs
 
 status = i3pystatus.Status(standalone=True)
 
@@ -21,6 +22,7 @@ status.register(mem.SwapFree, color_up=color_good, color_down=color_off,
 status.register(mem.MemFree, color_up=color_good, color_down=color_off,
                 color_critical=color_bad)
 status.register(vms, color_up=color_good, color_down=color_off)
+status.register(tmuxs, color_up=color_good, color_down=color_off)
 status.register("runwatch", name="DHCP", path="/var/run/dhcpcd*.pid",
                 color_up=color_good, color_down=color_off)
 status.register("network", interface="eno1", format_up="E:{v4} {v6}",

@@ -13,10 +13,13 @@ class TmuxS(i3pystatus.IntervalModule):
     def run(self):
         response = {'full_text': '', 'name': 'tmuxs'}
 
-        num_sessions = subprocess.check_output(['tmux', 'list-sessions'])
-        num_sessions = len(num_sessions.splitlines())
-        if num_sessions < 1:
-            response['color'] = self.color_down
+        try:
+            num_sessions = subprocess.check_output(['tmux', 'list-sessions'])
+            num_sessions = len(num_sessions.splitlines())
+            if num_sessions < 1:
+                response['color'] = self.color_down
+        except:
+            num_sessions = 0
 
         response['full_text'] = "TMUXs: %d" % num_sessions
 

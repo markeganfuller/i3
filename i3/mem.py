@@ -15,7 +15,7 @@ class MemFree(i3pystatus.IntervalModule):
 
     def run(self):
         response = {'full_text': '', 'name': 'ram'}
-        total = psutil.phymem_usage().percent
+        total = psutil.virtual_memory().percent
         if total < 1:
             response['color'] = self.color_down
         elif total < 50:

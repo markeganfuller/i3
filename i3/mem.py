@@ -1,3 +1,5 @@
+import os
+
 import i3pystatus
 import psutil
 
@@ -65,7 +67,8 @@ class TempfsFree(i3pystatus.IntervalModule):
 
     def run(self):
         response = {'full_text': '', 'name': 'tempfs'}
-        total = psutil.disk_usage('/home/markeganfuller/VirtualBoxVMs/').percent
+        path = os.path.expanduser('~/VirtualBoxVMs/')
+        total = psutil.disk_usage(path).percent
         if total < 1:
             response['color'] = self.color_down
         elif total < 50:

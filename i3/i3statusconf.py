@@ -25,8 +25,12 @@ status.register(vms, color_up=color_good, color_down=color_off)
 status.register(tmuxs, color_up=color_good, color_down=color_off)
 status.register("runwatch", name="DHCP", path="/var/run/dhcpcd*.pid",
                 color_up=color_good, color_down=color_off)
-status.register("network", interface="net0", format_up="E:{v4} {v6}",
+status.register("network", interface="net0", format_up="E:{v4}",
                 format_down="E", color_up=color_good, color_down=color_off,
+                on_leftclick=None, on_rightclick=None, on_upscroll=None,
+                on_downscroll=None)
+status.register("network", interface="wnet0", format_up="W:{v4}",
+                format_down="W", color_up=color_good, color_down=color_off,
                 on_leftclick=None, on_rightclick=None, on_upscroll=None,
                 on_downscroll=None)
 

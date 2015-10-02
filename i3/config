@@ -164,5 +164,5 @@ bar {
             urgent_workspace   #FF0000 #000000 #FF0000
         }
         tray_output none
-        status_command python ~/.i3/i3statusconf.py
+        status_command ~/.i3/env/bin/python ~/.i3/i3statusconf.py
 }

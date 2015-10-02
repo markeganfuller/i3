@@ -20,8 +20,6 @@ new_window 1pixel
 exec_always --no-startup-id nitrogen --restore &
 # Start X Screen Saver (So we can lock with it)
 exec_always --no-startup-id xscreensaver -no-splash &
-# Setup Displays (needs to be done after nitrogen start)
-#exec_always --no-startup-id /home/mark/bin/sud &
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -31,16 +29,16 @@ bindsym $mod+Return exec terminator
 #i3-sensible-terminal
 
 # vim all the things!
-bindsym $mod+Shift+Return exec /home/markeganfuller/bin/vatt
+bindsym $mod+Shift+Return exec ~/bin/vatt
 
 # Bindings for Alsamixer / Spotify
 bindsym $mod+m exec amixer -c 1 set Master toggle # Mute/Unmute
 bindsym $mod+Up exec amixer -c 1 -q sset Master 1%+
 bindsym $mod+Down exec amixer -c 1 -q sset Master 1%-
 
-bindsym $mod+slash exec /home/markeganfuller/bin/spotify_playpause
-bindsym $mod+comma exec /home/markeganfuller/bin/spotify_previous
-bindsym $mod+period exec /home/markeganfuller/bin/spotify_next
+bindsym $mod+slash exec ~/bin/spotify_playpause
+bindsym $mod+comma exec ~/bin/spotify_previous
+bindsym $mod+period exec ~/bin/spotify_next
 
 # Lock Screen
 bindsym $mod+numbersign exec xscreensaver-command -lock
@@ -129,7 +127,7 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+E exit
-bindsym $mod+Shift+E exec /home/markeganfuller/bin/i3_exit
+bindsym $mod+Shift+E exec ~/bin/i3_exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

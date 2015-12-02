@@ -1,3 +1,5 @@
+import re
+
 import i3pystatus
 import requests
 import bs4
@@ -54,7 +56,10 @@ class WeatherRain(i3pystatus.IntervalModule):
         day = soup.find("div", {"class": "weatherDay1"})
         percs = day.find("tr", {"class": "weatherRain"})
         percs = percs.findAll('td')
-        percs = [int(p.getText()[:-1]) for p in percs]
+        percs = [p.getText()[:-1] for p in percs]  # Cut %
+        non_decimal = re.compile(r'[^\d.]+')
+        percs = [non_decimal.sub('', p) for p in percs]
+        percs = [int(p) for p in percs]
         rain = max(percs)
 
         if rain > 50:

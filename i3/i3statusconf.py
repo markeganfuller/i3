@@ -1,4 +1,5 @@
 import i3pystatus
+import keyboardmap
 import mem
 import temps
 import tmuxs
@@ -12,6 +13,7 @@ color_bad = "#E50000"
 color_off = "#333333"
 
 status.register("clock", format="%Y-%m-%d %H:%M:%S %z %s")
+status.register(keyboardmap.KeyboardMap)
 status.register(temps.OnboardTemp)
 status.register(weather.WeatherTemp)
 status.register(weather.WeatherRain)

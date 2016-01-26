@@ -20,7 +20,7 @@ class WeatherTemp(i3pystatus.IntervalModule):
         response = {'full_text': '', 'name': 'vms'}
 
         resp = requests.request("get", "http://www.bbc.co.uk/weather/")
-        soup = bs4.BeautifulSoup(resp.content)
+        soup = bs4.BeautifulSoup(resp.content, "html.parser")
         london = soup.find(title="London")
         temp = london.find(class_="temperature-value").text[:-2]
         temp = int(temp)
@@ -52,7 +52,7 @@ class WeatherRain(i3pystatus.IntervalModule):
         response = {'full_text': '', 'name': 'rain'}
 
         resp = requests.request("get", "http://www.metoffice.gov.uk/public/weather/forecast/gcpvn15h9")
-        soup = bs4.BeautifulSoup(resp.content)
+        soup = bs4.BeautifulSoup(resp.content, "html.parser")
         day = soup.find("div", {"class": "weatherDay1"})
         percs = day.find("tr", {"class": "weatherRain"})
         percs = percs.findAll('td')

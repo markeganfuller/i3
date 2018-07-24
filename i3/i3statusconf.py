@@ -22,6 +22,13 @@ status.register(mem.SwapFree, color_up=color_ok, color_down=color_off,
 status.register(mem.MemFree, color_up=color_ok, color_down=color_off,
                 color_critical=color_bad)
 status.register(vms.VMs, color_up=color_good, color_down=color_off)
+
+if "tun0" in netifaces.interfaces():
+    status.register("network", interface="tun0", format_up="V:{v4}",
+                    format_down="V", color_up=color_ok, color_down=color_off,
+                    on_leftclick=None, on_rightclick=None, on_upscroll=None,
+                    on_downscroll=None, unknown_up=True)
+
 status.register("network", interface="net0", format_up="E:{v4}",
                 format_down="E", color_up=color_ok, color_down=color_off,
                 on_leftclick=None, on_rightclick=None, on_upscroll=None,

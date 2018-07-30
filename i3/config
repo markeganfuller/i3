@@ -32,9 +32,9 @@ bindsym $mod+Return exec terminator
 bindsym $mod+Shift+Return exec ~/bin/vatt
 
 # Bindings for Alsamixer / Spotify
-bindsym $mod+m exec amixer -c 1 set Master toggle # Mute/Unmute
-bindsym $mod+Up exec amixer -c 1 -q sset Master 1%+
-bindsym $mod+Down exec amixer -c 1 -q sset Master 1%-
+bindsym $mod+m exec amixer -D pulse set Master toggle # Mute/Unmute
+bindsym $mod+Up exec amixer -D pulse sset Master 1%+
+bindsym $mod+Down exec amixer -D pulse sset Master 1%-
 
 bindsym $mod+slash exec ~/bin/spotify_playpause
 bindsym $mod+comma exec ~/bin/spotify_previous

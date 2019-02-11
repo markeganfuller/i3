@@ -15,6 +15,19 @@ color_off = "#333333"
 status.register("clock", format="%Y-%m-%d %H:%M:%S %z %s")
 status.register(keyboardmap.KeyboardMap, color_good=color_ok)
 status.register(temps.OnboardTemp, color_norm=color_ok)
+status.register(
+    'battery',
+    format='{status}{percentage_design:.0f}%{glyph}',
+    alert=True,
+    alert_percentage=15,
+    status={
+        'DPL': 'X',
+        'CHR': 'C',
+        'DIS': 'D',
+        'FULL': 'F',
+    }
+)
+
 status.register("load", format="{avg1} {avg5} {avg15}",
                 critical_color=color_bad)
 status.register(mem.SwapFree, color_up=color_ok, color_down=color_off,

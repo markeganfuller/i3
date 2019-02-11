@@ -1,7 +1,6 @@
-beautifulsoup4==4.6.3
+git+https://github.com/enkore/i3pystatus.git
 colour==0.1.5
-i3pystatus==3.35
 netifaces==0.10.7
 psutil==5.4.8
-requests==2.20.0
 wheel==0.32.2
+pytz==2018.9

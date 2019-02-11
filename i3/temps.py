@@ -16,14 +16,17 @@ class OnboardTemp(i3pystatus.IntervalModule):
     def run(self):
         response = {'full_text': '', 'name': 'temp'}
 
-        output = subprocess.check_output(["acpi", "-t"],
-                                         universal_newlines=True)
+        output = subprocess.check_output(
+            ["sensors", "-A", "coretemp-isa-0000", "-u"],
+            universal_newlines=True
+        )
         output = output.splitlines()
-        output = [temp.split(' ')[3] for temp in output]
+        output = [temp for temp in output if 'input' in temp]
+        output = [temp.split(':')[1] for temp in output]
         output = [float(temp) for temp in output]
         temp = max(output)
 
-        if temp > 30:
+        if temp > 45:
             response['color'] = self.color_hot
         elif temp > 10:
             response['color'] = self.color_norm

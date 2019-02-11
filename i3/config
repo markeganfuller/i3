@@ -9,7 +9,6 @@ client.urgent           #FF0000 #FF0000 #FF0000 #440000
 set $mod Mod4
 
 # font for window titles.
-#font pango:Liberation Sans 10
 font pango:Dejavu Sans Mono Book 10
 
 # Disable window titles

@@ -4,7 +4,6 @@ import netifaces
 import i3pystatus
 
 import keyboardmap
-import temps
 import vms
 
 status = i3pystatus.Status(standalone=True)

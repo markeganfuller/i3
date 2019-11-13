@@ -1,8 +1,18 @@
+"""
+i3pystatus Onboard Temperature.
+
+Displays local machine temperature.
+"""
+
 import subprocess
 import i3pystatus
 
 
 class OnboardTemp(i3pystatus.IntervalModule):
+    """Display onboard temperature."""
+
+    # pylint: disable=too-few-public-methods
+
     color_hot = "#F00000"
     color_norm = "#FF7E00"
     color_cold = "#3333F0"
@@ -14,6 +24,7 @@ class OnboardTemp(i3pystatus.IntervalModule):
     )
 
     def run(self):
+        """Run."""
         response = {'full_text': '', 'name': 'temp'}
 
         output = subprocess.check_output(
@@ -34,5 +45,5 @@ class OnboardTemp(i3pystatus.IntervalModule):
             response['color'] = self.color_cold
 
         response['full_text'] = "%d°C" % temp
-
+        # pylint: disable=attribute-defined-outside-init
         self.output = response

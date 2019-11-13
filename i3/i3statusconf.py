@@ -1,5 +1,8 @@
+"""py3status config."""
+
 import netifaces
 import i3pystatus
+
 import keyboardmap
 import mem
 import temps

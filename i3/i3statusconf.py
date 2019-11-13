@@ -4,7 +4,6 @@ import netifaces
 import i3pystatus
 
 import keyboardmap
-import mem
 import temps
 import vms
 
@@ -33,10 +32,11 @@ status.register(
 
 status.register("load", format="{avg1} {avg5} {avg15}",
                 critical_color=color_bad)
-status.register(mem.SwapFree, color_up=color_ok, color_down=color_off,
-                color_critical=color_bad)
-status.register(mem.MemFree, color_up=color_ok, color_down=color_off,
-                color_critical=color_bad)
+status.register("swap", format="S:{percent_used:.0f}%", round_size=0,
+                warn_color=color_bad, alert_color=color_bad, color=color_ok)
+status.register("mem", format="M:{percent_used_mem:.0f}%", round_size=0,
+                warn_color=color_bad, alert_color=color_bad, color=color_ok)
+
 status.register(vms.VMs, color_up=color_good, color_down=color_off)
 
 if "tun0" in netifaces.interfaces():

@@ -4,3 +4,4 @@ netifaces==0.10.7
 psutil==5.4.8
 wheel==0.32.2
 pytz==2018.9
+git+git://github.com/bastienleonard/pysensors.git

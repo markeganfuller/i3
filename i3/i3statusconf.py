@@ -16,19 +16,17 @@ color_off = "#333333"
 
 status.register("clock", format="%Y-%m-%d %H:%M:%S %z %s")
 status.register(keyboardmap.KeyboardMap, color_good=color_ok, map="gb")
-status.register(temps.OnboardTemp, color_norm=color_ok)
-status.register(
-    'battery',
-    format='{status}{percentage_design:.0f}%{glyph}',
-    alert=True,
-    alert_percentage=15,
-    status={
-        'DPL': 'X',
-        'CHR': 'C',
-        'DIS': 'D',
-        'FULL': 'F',
-    }
-)
+status.register("temp", format="{Package_id_0}°C", hints={"markup": "pango"},
+                lm_sensors_enabled=True, color=color_ok, alert_color=color_bad,
+                alert_temp=60)
+status.register('battery', format='{status}{percentage_design:.0f}%{glyph}',
+                alert=True, alert_percentage=15,
+                status={
+                    'DPL': 'X',
+                    'CHR': 'C',
+                    'DIS': 'D',
+                    'FULL': 'F',
+                })
 
 status.register("load", format="{avg1} {avg5} {avg15}",
                 critical_color=color_bad)

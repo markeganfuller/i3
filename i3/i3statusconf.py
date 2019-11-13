@@ -2,6 +2,7 @@
 
 import netifaces
 import i3pystatus
+import i3pystatus.updates.pacman
 
 import keyboardmap
 import vms
@@ -36,21 +37,29 @@ status.register("mem", format="M:{percent_used_mem:.0f}%", round_size=0,
 
 status.register(vms.VMs, color_up=color_good, color_down=color_off)
 
+status.register("pulseaudio", format="A:{volume}%", format_muted="A:XX%",
+                on_upscroll=None, on_downscroll=None, on_doubleleftclick=None)
+
+status.register("updates", format="U:{count}", color=color_bad,
+                color_no_updates=color_ok, format_no_updates="U",
+                format_working="U:-",
+                backends=[i3pystatus.updates.pacman.Pacman()])
+
 if "tun0" in netifaces.interfaces():
     status.register("network", interface="tun0", format_up="V:{v4}",
                     format_down="V", color_up=color_ok, color_down=color_off,
                     on_leftclick=None, on_rightclick=None, on_upscroll=None,
                     on_downscroll=None, unknown_up=True)
 
-status.register("network", interface="net0", format_up="E:{v4}",
-                format_down="E", color_up=color_ok, color_down=color_off,
-                on_leftclick=None, on_rightclick=None, on_upscroll=None,
-                on_downscroll=None)
-
 if "wnet0" in netifaces.interfaces():
     status.register("network", interface="wnet0", format_up="W:{v4}",
                     format_down="W", color_up=color_ok, color_down=color_off,
                     on_leftclick=None, on_rightclick=None, on_upscroll=None,
                     on_downscroll=None)
+
+status.register("network", interface="net0", format_up="E:{v4}",
+                format_down="E", color_up=color_ok, color_down=color_off,
+                on_leftclick=None, on_rightclick=None, on_upscroll=None,
+                on_downscroll=None)
 
 status.run()

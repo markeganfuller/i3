@@ -28,9 +28,10 @@ class VMs(i3pystatus.IntervalModule):
         num_vms = len(num_vms.splitlines())
         if num_vms > 0:
             response['color'] = self.color_up
+            response['full_text'] = "VM: %d" % num_vms
         else:
             response['color'] = self.color_down
+            response['full_text'] = "VM"
 
-        response['full_text'] = "VMs: %d" % num_vms
         # pylint: disable=attribute-defined-outside-init
         self.output = response

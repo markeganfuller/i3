@@ -15,7 +15,7 @@ color_bad = "#E50000"
 color_off = "#333333"
 
 status.register("clock", format="%Y-%m-%d %H:%M:%S %z %s")
-status.register(keyboardmap.KeyboardMap, color_good=color_ok)
+status.register(keyboardmap.KeyboardMap, color_good=color_ok, map="gb")
 status.register(temps.OnboardTemp, color_norm=color_ok)
 status.register(
     'battery',

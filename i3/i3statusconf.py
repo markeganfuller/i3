@@ -41,7 +41,7 @@ status.register("pulseaudio", format="A:{volume}%", format_muted="A:XX%",
                 on_upscroll=None, on_downscroll=None, on_doubleleftclick=None)
 
 status.register("updates", format="U:{count}", color=color_bad,
-                color_no_updates=color_ok, format_no_updates="U",
+                color_no_updates=color_off, format_no_updates="U",
                 format_working="U:-",
                 backends=[i3pystatus.updates.pacman.Pacman()])
 

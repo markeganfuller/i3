@@ -1,7 +1,7 @@
 git+https://github.com/enkore/i3pystatus.git
 colour==0.1.5
 netifaces==0.10.7
-psutil==5.4.8
+psutil==5.6.6
 wheel==0.32.2
 pytz==2018.9
 git+git://github.com/bastienleonard/pysensors.git

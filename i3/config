@@ -166,3 +166,8 @@ bar {
         wheel_up_cmd nop
         wheel_down_cmd nop
 }
+
+# Settings for specific windows
+## Float teams notifications
+for_window [class="microsoft teams - preview"] floating enable
+for_window [class="Microsoft Teams - Preview"] floating enable

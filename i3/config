@@ -169,5 +169,5 @@ bar {
 
 # Settings for specific windows
 ## Float teams notifications
-for_window [class="microsoft teams - preview"] floating enable
-for_window [class="Microsoft Teams - Preview"] floating enable
+for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
+for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable

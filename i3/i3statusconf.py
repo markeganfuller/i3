@@ -4,6 +4,7 @@ import netifaces
 import i3pystatus
 import i3pystatus.updates.pacman
 
+import gatewayping
 import keyboardmap
 import vms
 
@@ -61,5 +62,8 @@ status.register("network", interface="net0", format_up="E:{v4}",
                 format_down="E", color_up=color_ok, color_down=color_off,
                 on_leftclick=None, on_rightclick=None, on_upscroll=None,
                 on_downscroll=None)
+
+status.register(gatewayping.GatewayPing, threshold=20, color_good=color_off,
+                color_bad=color_bad)
 
 status.run()

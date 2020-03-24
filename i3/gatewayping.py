@@ -10,9 +10,9 @@ import i3pystatus
 
 class GatewayPing(i3pystatus.IntervalModule):
     """
-    Keyboard map.
+    Gateway ping.
 
-    Checks for a specific keyboard map.
+    Checks the default gateway is pinging.
     """
 
     # pylint: disable=too-few-public-methods
@@ -28,21 +28,34 @@ class GatewayPing(i3pystatus.IntervalModule):
 
     def run(self):
         """Run."""
-        response = {'full_text': '', 'name': 'ms'}
+        response = {
+            'full_text': '',
+            'name': 'ms',
+            'color': self.color_bad
+        }
 
-        command = "ping -c10 -q $(ip route show default | cut -d' ' -f 3)"
-        stats = subprocess.check_output(command, shell=True,
-                                        universal_newlines=True)
-
-        stats = stats.splitlines()
-        # rtt min/avg/max/mdev = 1.405/2.246/2.584/0.322 ms
-        ms = float(stats[-1].split('/')[4])
-        if ms > self.threshold:
-            response['color'] = self.color_bad
+        try:
+            command = "ip route show default | cut -d' ' -f 3"
+            gateway = subprocess.check_output(command, shell=True,
+                                                universal_newlines=True)
+        except subprocess.CalledProcessError:
+            response['full_text'] = f"GW:?"
         else:
-            response['color'] = self.color_good
+            try:
+                command = f"ping -c10 -q {gateway}"
+                stats = subprocess.check_output(command, shell=True,
+                                                universal_newlines=True)
 
-        response['full_text'] = f"{ms}ms"
+                stats = stats.splitlines()
+                # rtt min/avg/max/mdev = 1.405/2.246/2.584/0.322 ms
+                ms = float(stats[-1].split('/')[4])
+                if ms < self.threshold:
+                    response['color'] = self.color_good
+
+                response['full_text'] = f"{ms}ms"
+
+            except subprocess.CalledProcessError:
+                response['full_text'] = "?ms"
 
         # pylint: disable=attribute-defined-outside-init
         self.output = response

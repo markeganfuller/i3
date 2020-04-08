@@ -25,7 +25,6 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec terminator
-#i3-sensible-terminal
 
 # vim all the things!
 bindsym $mod+Shift+Return exec ~/bin/vatt
@@ -171,3 +170,4 @@ bar {
 ## Float teams notifications
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
+for_window [title="opcoffox" class="Xdialog"] floating enable border normal 5

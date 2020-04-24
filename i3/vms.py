@@ -24,8 +24,7 @@ class VMs(i3pystatus.IntervalModule):
         """Run."""
         response = {'full_text': '', 'name': 'vms'}
 
-        num_vms = subprocess.check_output(['vboxmanage', 'list', 'runningvms'])
-        num_vms = len(num_vms.splitlines())
+        num_vms = self.get_virtualbox_vms() + self.get_libvirt_vms()
         if num_vms > 0:
             response['color'] = self.color_up
             response['full_text'] = "VM: %d" % num_vms
@@ -35,3 +34,17 @@ class VMs(i3pystatus.IntervalModule):
 
         # pylint: disable=attribute-defined-outside-init
         self.output = response
+
+    @staticmethod
+    def get_virtualbox_vms():
+        """Get count of Virtualbox VMs."""
+        num_vms = subprocess.check_output(['vboxmanage', 'list', 'runningvms'])
+        num_vms = len(num_vms.splitlines())
+        return num_vms
+
+    @staticmethod
+    def get_libvirt_vms():
+        """Get count of libvirt VMs."""
+        num_vms = subprocess.check_output(['virsh', '-q', '-c', 'qemu:///system', 'list'])
+        num_vms = len(num_vms.splitlines())
+        return num_vms

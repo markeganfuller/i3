@@ -63,6 +63,13 @@ status.register("network", interface="net0", format_up="E:{v4}",
                 on_leftclick=None, on_rightclick=None, on_upscroll=None,
                 on_downscroll=None)
 
+if "usbnet0" in netifaces.interfaces():
+    status.register("network", interface="usbnet0", format_up="U:{v4}",
+                    format_down="U", color_up=color_ok, color_down=color_off,
+                    on_leftclick=None, on_rightclick=None, on_upscroll=None,
+                    on_downscroll=None)
+
+
 status.register(gatewayping.GatewayPing, threshold=20, color_good=color_off,
                 color_bad=color_bad)
 

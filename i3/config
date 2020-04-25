@@ -29,11 +29,17 @@ bindsym $mod+Return exec terminator
 # vim all the things!
 bindsym $mod+Shift+Return exec ~/bin/vatt
 
-# Bindings for Alsamixer / Spotify
+# Bindings for audio
 bindsym $mod+m exec amixer -D pulse set Master toggle # Mute/Unmute
 bindsym $mod+Up exec amixer -D pulse sset Master 1%+
 bindsym $mod+Down exec amixer -D pulse sset Master 1%-
 
+## audio keys on noachis
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
+bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
+
+# Bindings for spotify
 bindsym $mod+slash exec ~/bin/spotify_playpause
 bindsym $mod+comma exec ~/bin/spotify_previous
 bindsym $mod+period exec ~/bin/spotify_next

@@ -23,15 +23,23 @@ exec_always --no-startup-id xscreensaver -no-splash &
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
+## Launch // this dialog // <Super><Shift> ? ##
+bindsym $mod+Shift+question exec ~/.i3/remontoire-toggle
+
+## Launch // terminal // <Super> Return ##
 bindsym $mod+Return exec terminator
 
-# vim all the things!
+## Launch // vim all the things! // <Super> <Shift> Return ##
 bindsym $mod+Shift+Return exec ~/bin/vatt
 
-# Bindings for audio
+## Launch // start dmenu // <Super> d ##
+bindsym $mod+d exec dmenu_run
+
+## Audio // mute / unmute // <Super> m ##
 bindsym $mod+m exec amixer -D pulse set Master toggle # Mute/Unmute
+## Audio // volume up // <Super> Up ##
 bindsym $mod+Up exec amixer -D pulse sset Master 1%+
+## Audio // volume down // <Super> Down ##
 bindsym $mod+Down exec amixer -D pulse sset Master 1%-
 
 ## audio keys on noachis
@@ -39,62 +47,72 @@ bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
 
-# Bindings for spotify
+## Audio // spotify play / pause // <Super> / ##
 bindsym $mod+slash exec ~/bin/spotify_playpause
+## Audio // spotify previous // <Super> , ##
 bindsym $mod+comma exec ~/bin/spotify_previous
+## Audio // spotify next // <Super> . ##
 bindsym $mod+period exec ~/bin/spotify_next
 
-# Lock Screen
+## System // lock screen // <Super> # ##
 bindsym $mod+numbersign exec xscreensaver-command -lock
 
-# kill focused window
+## Windows // kill window // <Super> <Shift> Q ##
 bindsym $mod+Shift+Q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-
-# change focus
+## Windows - Focus // focus left // <Super> h ##
 bindsym $mod+h focus left
+## Windows - Focus  // focus down // <Super> j ##
 bindsym $mod+j focus down
+## Windows - Focus  // focus up // <Super> k ##
 bindsym $mod+k focus up
+## Windows - Focus  // focus right // <Super> l ##
 bindsym $mod+l focus right
 
-# move focused window
+## Windows - Focus // toggle focus between tiling / floating // <Super> <Space> ##
+bindsym $mod+space focus mode_toggle
+## Windows - Focus // focus the parent container // <Super> a ##
+bindsym $mod+a focus parent
+## Windows - Focus // focus the child container // <Super> <Shift> a ##
+bindsym $mod+Shift+a focus child
+
+## Windows - Move // move window Left // <Super> <Shift> h ##
 bindsym $mod+Shift+H move left
+## Windows - Move // move window down // <Super> <Shift> j ##
 bindsym $mod+Shift+J move down
+## Windows - Move // move window up // <Super> <Shift> k ##
 bindsym $mod+Shift+K move up
+## Windows - Move // move window right // <Super> <Shift> l ##
 bindsym $mod+Shift+L move right
 
-# split in horizontal orientation
+## Windows - Config // split in horizontal orientation // <Super> b ##
 bindsym $mod+b split h
-
-# split in vertical orientation
+## Windows - Config // split in vertical orientation // <Super> v ##
 bindsym $mod+v split v
 
-# disable borders on focused window
+## Windows - Config // toggle borders on window // <Super> <Shift> f ##
 bindsym $mod+Shift+f border toggle
-# enter fullscreen mode for the focused container
+## Windows - Config // fullscreen window // <Super> f ##
 bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, default)
+## Windows - Config // change layout to stacking // <Super> s ##
 bindsym $mod+s layout stacking
+## Windows - Config // change layout to tabbed // <Super> w ##
 bindsym $mod+w layout tabbed
+## Windows - Config // change layout to default // <Super> e ##
 bindsym $mod+e layout default
 
-# toggle tiling / floating
+## Windows - Config // toggle window floating // <Super> <Shift> <Space> ##
 bindsym $mod+Shift+space floating toggle
+## Windows - Config // toggle window sticky // <Super> <Shift> s ##
 bindsym $mod+Shift+s sticky toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+## Windows - Config // move window to scratchpad // <Super> <Shift> - ##
+bindsym $mod+Shift+minus move scratchpad
+## Windows - Config // show scratchpad // <Super> - ##
+bindsym $mod+minus scratchpad show
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindcode $mod+d focus child
-
-# switch to workspace
+## Workspaces // switch to workspace 01 // <Super> 1-10 ##
 bindsym $mod+1 workspace "01"
 bindsym $mod+2 workspace "02"
 bindsym $mod+3 workspace "03"
@@ -106,45 +124,43 @@ bindsym $mod+8 workspace "08"
 bindsym $mod+9 workspace "09"
 bindsym $mod+0 workspace "10"
 
-# move focused container to workspace
+## Workspaces // move container to workspace // <Super> <Shift> 1-10 ##
 bindsym $mod+Shift+exclam      move container to workspace  "01"
 bindsym $mod+Shift+quotedbl    move container to workspace  "02"
 bindsym $mod+Shift+sterling    move container to workspace  "03"
 bindsym $mod+Shift+dollar      move container to workspace  "04"
-bindsym $mod+Shift+percent     move container to workspace  "05"
+bindsym $mod+Shift+percent     move container 6o workspace  "05"
 bindsym $mod+Shift+asciicircum move container to workspace  "06"
 bindsym $mod+Shift+ampersand   move container to workspace  "07"
 bindsym $mod+Shift+asterisk    move container to workspace  "08"
 bindsym $mod+Shift+parenleft   move container to workspace  "09"
 bindsym $mod+Shift+parenright  move container to workspace  "10"
 
-# move window to and from scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
-# move workspace to different screen
+## Workspaces // move workspace to right screen // <Super> <Shift> p ##
 bindsym $mod+Shift+p move workspace to output right
+## Workspaces // move workspace to left screen // <Super> <Shift> u ##
 bindsym $mod+Shift+u move workspace to output left
 
-# reload the configuration file
+## System // reload the configuration file // <Super> <Shift> c ##
 bindsym $mod+Shift+C reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+## System // restart i3 // <Super> <Shift> r ##
 bindsym $mod+Shift+R restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+E exit
+## System // exit i3 and X // <Super> <Shift> e ##
 bindsym $mod+Shift+E exec ~/bin/i3_exit
 
+## Windows - Resize // enter resize mode // <Super> r ##
+bindsym $mod+r mode "resize"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
+        ## Windows - Resize // shrink width // h ##
         bindsym h resize shrink width 10 px or 10 ppt
+        ## Windows - Resize // grow height // j ##
         bindsym j resize grow height 10 px or 10 ppt
+        ## Windows - Resize // shrink height // k ##
         bindsym k resize shrink height 10 px or 10 ppt
+        ## Windows - Resize // grow width // l ##
         bindsym l resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
@@ -152,7 +168,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

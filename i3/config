@@ -190,5 +190,8 @@ bar {
 # Settings for specific windows
 ## Float teams notifications
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
+no_focus [title="Microsoft Teams Notification" class="microsoft teams - preview"]
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
+no_focus [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"]
+# Float opcoffox dialogs
 for_window [title="opcoffox" class="Xdialog"] floating enable border normal 5

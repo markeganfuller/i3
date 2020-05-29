@@ -73,4 +73,7 @@ if "usbnet0" in netifaces.interfaces():
 status.register(gatewayping.GatewayPing, threshold=20, color_good=color_off,
                 color_bad=color_bad)
 
+status.register("timewarrior", format="{tags} {duration}", enable_stop=False,
+                enable_continue=False)
+
 status.run()

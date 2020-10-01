@@ -129,7 +129,7 @@ bindsym $mod+Shift+exclam      move container to workspace  "01"
 bindsym $mod+Shift+quotedbl    move container to workspace  "02"
 bindsym $mod+Shift+sterling    move container to workspace  "03"
 bindsym $mod+Shift+dollar      move container to workspace  "04"
-bindsym $mod+Shift+percent     move container 6o workspace  "05"
+bindsym $mod+Shift+percent     move container to workspace  "05"
 bindsym $mod+Shift+asciicircum move container to workspace  "06"
 bindsym $mod+Shift+ampersand   move container to workspace  "07"
 bindsym $mod+Shift+asterisk    move container to workspace  "08"
@@ -183,8 +183,8 @@ bar {
         }
         tray_output none
         status_command ~/.i3/env/bin/python ~/.i3/i3statusconf.py
-        wheel_up_cmd nop
-        wheel_down_cmd nop
+        bindsym button4 nop
+        bindsym button5 nop
 }
 
 # Settings for specific windows

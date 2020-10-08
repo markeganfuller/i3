@@ -15,7 +15,7 @@ color_ok = "#FFFFFF"
 color_bad = "#E50000"
 color_off = "#333333"
 
-status.register("clock", format="%Y-%m-%d %H:%M:%S %z %s")
+status.register("clock", format="%a %Y-%m-%d %H:%M:%S %z %s")
 status.register(keyboardmap.KeyboardMap, color_good=color_ok, map="gb")
 status.register("temp", format="{Package_id_0}°C", hints={"markup": "pango"},
                 lm_sensors_enabled=True, color=color_ok, alert_color=color_bad,

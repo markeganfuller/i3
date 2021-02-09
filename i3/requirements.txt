@@ -5,3 +5,4 @@ psutil==5.7.0
 pytz==2020.1
 git+git://github.com/bastienleonard/pysensors.git
 python-dateutil==2.8.1
+dbus-python==1.2.16

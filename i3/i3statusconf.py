@@ -4,6 +4,7 @@ import netifaces
 import i3pystatus
 import i3pystatus.updates.pacman
 
+import crypto
 import gatewayping
 import keyboardmap
 import vms
@@ -177,6 +178,15 @@ status.register(
     on_rightclick=None,
     on_upscroll=None,
     on_downscroll=None,
+)
+
+status.register(
+    crypto.Crypto,
+)
+
+status.register(
+    crypto.Crypto,
+    crypto='ETH'
 )
 
 status.run()

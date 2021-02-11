@@ -178,6 +178,7 @@ status.register(
     on_rightclick=None,
     on_upscroll=None,
     on_downscroll=None,
+    interval=10,
 )
 
 status.register(

@@ -4,7 +4,6 @@ import netifaces
 import i3pystatus
 import i3pystatus.updates.pacman
 
-import crypto
 import gatewayping
 import keyboardmap
 import vms

@@ -181,13 +181,4 @@ status.register(
     interval=10,
 )
 
-status.register(
-    crypto.Crypto,
-)
-
-status.register(
-    crypto.Crypto,
-    crypto='ETH'
-)
-
 status.run()

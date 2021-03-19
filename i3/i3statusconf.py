@@ -12,6 +12,7 @@ status = i3pystatus.Status(standalone=True)
 
 color_good = "#00F000"  # Green
 color_ok = "#FFFFFF"  # White
+color_warn = "#FF7C00"  # Amber
 color_bad = "#E50000"  # Red
 color_off = "#333333"  # Grey
 
@@ -61,7 +62,7 @@ status.register(
     "mem",
     format="M:{percent_used_mem:.0f}%",
     round_size=0,
-    warn_color=color_bad,
+    warn_color=color_warn,
     alert_color=color_bad,
     color=color_ok
 )

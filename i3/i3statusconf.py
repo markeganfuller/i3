@@ -92,34 +92,32 @@ status.register(
     backends=[i3pystatus.updates.pacman.Pacman()]
 )
 
-if "tun0" in netifaces.interfaces():
-    status.register(
-        "network",
-        interface="tun0",
-        format_up="V:{v4}",
-        format_down="V",
-        color_up=color_ok,
-        color_down=color_off,
-        on_leftclick=None,
-        on_rightclick=None,
-        on_upscroll=None,
-        on_downscroll=None,
-        unknown_up=True
-    )
+status.register(
+    "network",
+    interface="tun0",
+    format_up="V:{v4}",
+    format_down="V",
+    color_up=color_ok,
+    color_down=color_off,
+    on_leftclick=None,
+    on_rightclick=None,
+    on_upscroll=None,
+    on_downscroll=None,
+    unknown_up=True
+)
 
-if "wnet0" in netifaces.interfaces():
-    status.register(
-        "network",
-        interface="wnet0",
-        format_up="W:{v4}",
-        format_down="W",
-        color_up=color_ok,
-        color_down=color_off,
-        on_leftclick=None,
-        on_rightclick=None,
-        on_upscroll=None,
-        on_downscroll=None
-    )
+status.register(
+    "network",
+    interface="wnet0",
+    format_up="W:{v4}",
+    format_down="W",
+    color_up=color_ok,
+    color_down=color_off,
+    on_leftclick=None,
+    on_rightclick=None,
+    on_upscroll=None,
+    on_downscroll=None
+)
 
 status.register(
     "network",
@@ -134,19 +132,18 @@ status.register(
     on_downscroll=None
 )
 
-if "usbnet0" in netifaces.interfaces():
-    status.register(
-        "network",
-        interface="usbnet0",
-        format_up="U:{v4}",
-        format_down="U",
-        color_up=color_ok,
-        color_down=color_off,
-        on_leftclick=None,
-        on_rightclick=None,
-        on_upscroll=None,
-        on_downscroll=None
-    )
+status.register(
+    "network",
+    interface="usbnet0",
+    format_up="U:{v4}",
+    format_down="U",
+    color_up=color_ok,
+    color_down=color_off,
+    on_leftclick=None,
+    on_rightclick=None,
+    on_upscroll=None,
+    on_downscroll=None
+)
 
 
 status.register(

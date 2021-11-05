@@ -30,7 +30,7 @@ bindsym $mod+Shift+question exec ~/.i3/remontoire-toggle
 bindsym $mod+Return exec terminator
 
 ## Launch // vim all the things! // <Super> <Shift> Return ##
-bindsym $mod+Shift+Return exec ~/bin/vatt
+bindsym $mod+Shift+Return exec terminator -e 'bash --rcfile <(echo ". ~/.bashrc && vf")'
 
 ## Launch // start dmenu // <Super> d ##
 bindsym $mod+d exec dmenu_run

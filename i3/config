@@ -29,8 +29,14 @@ bindsym $mod+Shift+question exec ~/.i3/remontoire-toggle
 ## Launch // terminal // <Super> Return ##
 bindsym $mod+Return exec terminator
 
-## Launch // vim all the things! // <Super> <Shift> Return ##
+## Launch // terminal fzf cd // <Super> Space ##
+bindsym $mod+space exec terminator -e 'bash --rcfile <(echo ". ~/.bashrc && cdf")'
+
+## Launch // terminal fzf vim // <Super> <Shift> Return ##
 bindsym $mod+Shift+Return exec terminator -e 'bash --rcfile <(echo ". ~/.bashrc && vf")'
+
+## Launch // terminal ssh // <Super> <Shift> <Space> ##
+bindsym $mod+Shift+space exec terminator -e 'bash --rcfile <(echo ". ~/.bashrc && sshfzf")'
 
 ## Launch // start dmenu // <Super> d ##
 bindsym $mod+d exec dmenu_run
@@ -72,8 +78,6 @@ bindsym $mod+k focus up
 ## Windows - Focus  // focus right // <Super> l ##
 bindsym $mod+l focus right
 
-## Windows - Focus // toggle focus between tiling / floating // <Super> <Space> ##
-bindsym $mod+space focus mode_toggle
 ## Windows - Focus // focus the parent container // <Super> a ##
 bindsym $mod+a focus parent
 ## Windows - Focus // focus the child container // <Super> <Shift> a ##
@@ -93,8 +97,6 @@ bindsym $mod+b split h
 ## Windows - Config // split in vertical orientation // <Super> v ##
 bindsym $mod+v split v
 
-## Windows - Config // toggle borders on window // <Super> <Shift> f ##
-bindsym $mod+Shift+f border toggle
 ## Windows - Config // fullscreen window // <Super> f ##
 bindsym $mod+f fullscreen
 
@@ -105,8 +107,8 @@ bindsym $mod+w layout tabbed
 ## Windows - Config // change layout to default // <Super> e ##
 bindsym $mod+e layout default
 
-## Windows - Config // toggle window floating // <Super> <Shift> <Space> ##
-bindsym $mod+Shift+space floating toggle
+## Windows - Config // toggle window floating // <Super> <Shift> f ##
+bindsym $mod+Shift+f floating toggle
 ## Windows - Config // toggle window sticky // <Super> <Shift> s ##
 bindsym $mod+Shift+s sticky toggle
 

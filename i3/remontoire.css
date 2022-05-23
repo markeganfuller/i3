@@ -1,0 +1,60 @@
+.window {
+  margin: 4px;
+  padding: 10px;
+  background-color: #222222;
+  color: #bbbbbb;
+  border: 5px solid;
+  border-color: #ff00ff;
+}
+
+*:selected {
+  background-color: #222222;
+  color: #bbbbbb;
+}
+
+.category {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-weight: bold;
+  font-size: .95em;
+}
+
+.action {
+  padding-right: 10px;
+  padding-left: 15px;
+  font-weight: lighter;
+}
+
+.error {
+  padding: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.metakey {
+  font-family: monospace;
+  font-weight: bold;
+  border: 1px solid;
+  border-color: #ff00ff;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 2px;
+  font-size: 1em;
+}
+
+.key {
+  font-family: monospace;
+  font-weight: normal;
+  border: 1px solid;
+  border-color: #ff00ff;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 2px;
+  font-size: 1em;
+}
+
+.detail {
+  margin: 2px;
+}

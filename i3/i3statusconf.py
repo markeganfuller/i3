@@ -2,6 +2,7 @@
 
 import netifaces
 import i3pystatus
+import i3pystatus.temp
 import i3pystatus.updates.pacman
 
 import gatewayping
@@ -20,15 +21,22 @@ status.register("clock", format="%a %Y-%m-%d %H:%M:%S %z %s")
 
 status.register(keyboardmap.KeyboardMap, color_good=color_ok, map="gb")
 
-status.register(
-    "temp",
-    format="{Package_id_0}°C",
-    hints={"markup": "pango"},
-    lm_sensors_enabled=True,
-    color=color_ok,
-    alert_color=color_bad,
-    alert_temp=60
-)
+if i3pystatus.temp.get_sensors():
+    status.register(
+        "temp",
+        format="{Package_id_0}°C",
+        hints={"markup": "pango"},
+        lm_sensors_enabled=True,
+        color=color_ok,
+        alert_color=color_bad,
+        alert_temp=60
+    )
+else:
+    status.register(
+        "text",
+        text="??°C",
+        color=color_off
+    )
 
 status.register(
     'battery',

@@ -168,13 +168,6 @@ status.register(
 )
 
 status.register(
-    "timewarrior",
-    format="{tags} {duration}",
-    enable_stop=False,
-    enable_continue=False
-)
-
-status.register(
     "spotify",
     player="spotifyd",
     format="{title} : {artist} {status}",

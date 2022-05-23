@@ -41,6 +41,12 @@ else:
 status.register(
     'battery',
     format='{status}{percentage_design:.0f}%{glyph}',
+    not_present_text="B",
+    color=color_ok,
+    full_color=color_good,
+    charging_color=color_warn,
+    critical_color=color_bad,
+    not_present_color=color_off,
     alert=True,
     alert_percentage=15,
     status={

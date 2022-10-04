@@ -35,7 +35,7 @@ class GatewayPing(i3pystatus.IntervalModule):
         }
 
         try:
-            command = "ip route show default | cut -d' ' -f 3"
+            command = "ip route show default | grep -v gpd | cut -d' ' -f 3"
             gateway = subprocess.check_output(command, shell=True,
                                                 universal_newlines=True)
         except subprocess.CalledProcessError:

@@ -3,11 +3,12 @@
 import netifaces
 import i3pystatus
 import i3pystatus.temp
-import i3pystatus.updates.pacman
 
 import gatewayping
 import keyboardmap
 import vms
+
+import i3pystatus_local
 
 status = i3pystatus.Status(standalone=True)
 
@@ -103,61 +104,65 @@ status.register(
     color_no_updates=color_off,
     format_no_updates="U",
     format_working="U:-",
-    backends=[i3pystatus.updates.pacman.Pacman()]
+    backends=i3pystatus_local.UPDATE_BACKENDS
 )
 
-status.register(
-    "network",
-    interface="tun0",
-    format_up="V:{v4}",
-    format_down="V",
-    color_up=color_ok,
-    color_down=color_off,
-    on_leftclick=None,
-    on_rightclick=None,
-    on_upscroll=None,
-    on_downscroll=None,
-    unknown_up=True
-)
+if i3pystatus_local.NETWORK_INTERFACE_VPN:
+    status.register(
+        "network",
+        interface=i3pystatus_local.NETWORK_INTERFACE_VPN,
+        format_up="V:{v4}",
+        format_down="V",
+        color_up=color_ok,
+        color_down=color_off,
+        on_leftclick=None,
+        on_rightclick=None,
+        on_upscroll=None,
+        on_downscroll=None,
+        unknown_up=True
+    )
 
-status.register(
-    "network",
-    interface="wnet0",
-    format_up="W:{v4}",
-    format_down="W",
-    color_up=color_ok,
-    color_down=color_off,
-    on_leftclick=None,
-    on_rightclick=None,
-    on_upscroll=None,
-    on_downscroll=None
-)
+if i3pystatus_local.NETWORK_INTERFACE_WIRELESS:
+    status.register(
+        "network",
+        interface=i3pystatus_local.NETWORK_INTERFACE_WIRELESS,
+        format_up="W:{v4}",
+        format_down="W",
+        color_up=color_ok,
+        color_down=color_off,
+        on_leftclick=None,
+        on_rightclick=None,
+        on_upscroll=None,
+        on_downscroll=None
+    )
 
-status.register(
-    "network",
-    interface="net0",
-    format_up="E:{v4}",
-    format_down="E",
-    color_up=color_ok,
-    color_down=color_off,
-    on_leftclick=None,
-    on_rightclick=None,
-    on_upscroll=None,
-    on_downscroll=None
-)
+if i3pystatus_local.NETWORK_INTERFACE_WIRED:
+    status.register(
+        "network",
+        interface=i3pystatus_local.NETWORK_INTERFACE_WIRED,
+        format_up="E:{v4}",
+        format_down="E",
+        color_up=color_ok,
+        color_down=color_off,
+        on_leftclick=None,
+        on_rightclick=None,
+        on_upscroll=None,
+        on_downscroll=None
+    )
 
-status.register(
-    "network",
-    interface="usbnet0",
-    format_up="U:{v4}",
-    format_down="U",
-    color_up=color_ok,
-    color_down=color_off,
-    on_leftclick=None,
-    on_rightclick=None,
-    on_upscroll=None,
-    on_downscroll=None
-)
+if i3pystatus_local.NETWORK_INTERFACE_WIRED_USB:
+    status.register(
+        "network",
+        interface=i3pystatus_local.NETWORK_INTERFACE_WIRED_USB,
+        format_up="U:{v4}",
+        format_down="U",
+        color_up=color_ok,
+        color_down=color_off,
+        on_leftclick=None,
+        on_rightclick=None,
+        on_upscroll=None,
+        on_downscroll=None
+    )
 
 
 status.register(

@@ -1,0 +1,9 @@
+import i3pystatus
+import i3pystatus.updates.pacman
+
+UPDATE_BACKENDS = [i3pystatus.updates.pacman.Pacman()]
+
+NETWORK_INTERFACE_VPN = "tun0"
+NETWORK_INTERFACE_WIRED = "net0"
+NETWORK_INTERFACE_WIRED_USB = "usbnet0"
+NETWORK_INTERFACE_WIRELESS = "wnet0"

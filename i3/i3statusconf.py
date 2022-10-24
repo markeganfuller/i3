@@ -1,5 +1,7 @@
 """py3status config."""
 
+import os
+
 import netifaces
 import i3pystatus
 import i3pystatus.temp
@@ -79,6 +81,18 @@ status.register(
     round_size=0,
     warn_color=color_warn,
     alert_color=color_bad,
+    color=color_ok
+)
+
+status.register(
+    "disk",
+    path=os.path.expanduser("~/VirtualBox VMs"),
+    format="VS:{percentage_used:.0f}%",
+    format_not_mounted="VS",
+    color_not_mounted=color_off,
+    round_size=0,
+    critical_limit=5,
+    critical_color=color_warn,
     color=color_ok
 )
 

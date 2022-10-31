@@ -188,7 +188,7 @@ status.register(
 
 status.register(
     "spotify",
-    player="spotifyd",
+    # player="spotifyd",
     format="{title} : {artist} {status}",
     status={
         'pause': '⏸︎',

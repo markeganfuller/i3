@@ -53,6 +53,7 @@ bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
 bindsym XF86AudioLowerVolume exec amixer sset Master 1%-
 bindsym XF86AudioPlay exec ~/bin/spotify_playpause
+bindsym XF86AudioPause exec ~/bin/spotify_playpause
 bindsym XF86AudioNext exec ~/bin/spotify_next
 bindsym XF86AudioPrev exec ~/bin/spotify_previous
 

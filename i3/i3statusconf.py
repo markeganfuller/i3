@@ -6,6 +6,7 @@ import netifaces
 import i3pystatus
 import i3pystatus.temp
 
+import docker
 import gatewayping
 import keyboardmap
 import vms
@@ -98,6 +99,12 @@ status.register(
 
 status.register(
     vms.VMs,
+    color_up=color_good,
+    color_down=color_off
+)
+
+status.register(
+    docker.Docker,
     color_up=color_good,
     color_down=color_off
 )

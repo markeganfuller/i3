@@ -47,7 +47,7 @@ status.register(
     format='{status}{percentage_design:.0f}%{glyph}',
     not_present_text="B",
     color=color_ok,
-    full_color=color_good,
+    full_color=color_ok,
     charging_color=color_warn,
     critical_color=color_bad,
     not_present_color=color_off,
@@ -121,7 +121,7 @@ status.register(
 status.register(
     "updates",
     format="U:{count}",
-    color=color_bad,
+    color=color_warn,
     color_no_updates=color_off,
     format_no_updates="U",
     format_working="U:-",

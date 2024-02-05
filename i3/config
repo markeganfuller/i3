@@ -194,6 +194,7 @@ bar {
 }
 
 # Settings for specific windows
+# Use xprop to get window details
 ## Float teams notifications and don't autofocus
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 no_focus [title="Microsoft Teams Notification" class="microsoft teams - preview"]
@@ -205,7 +206,7 @@ no_focus [class="zoom"]
 ### Popups (e.g. chat)
 for_window [class="zoom"] floating enable border normal 5
 ### Main window
-for_window [class="zoom" title="Zoom - Licensed Account"] floating disable border none
+for_window [class="zoom" title="Zoom - Licensed account"] floating disable border none
 ### Meeting window
 for_window [class="zoom" title="Zoom Meeting"] floating disable border none
 ### Notifications

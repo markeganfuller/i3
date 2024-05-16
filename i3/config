@@ -29,14 +29,8 @@ bindsym $mod+Shift+question exec ~/.i3/remontoire-toggle
 ## Launch // terminal // <Super> Return ##
 bindsym $mod+Return exec terminator
 
-## Launch // terminal fzf cd // <Super> Space ##
-bindsym $mod+space exec terminator -e 'bash --rcfile <(echo ". ~/.bashrc && cdf")'
-
-## Launch // terminal fzf vim // <Super> <Shift> Return ##
-bindsym $mod+Shift+Return exec terminator -e 'bash --rcfile <(echo ". ~/.bashrc && vf")'
-
-## Launch // terminal ssh // <Super> <Shift> <Space> ##
-bindsym $mod+Shift+space exec terminator -e 'bash --rcfile <(echo ". ~/.bashrc && sshfzf")'
+## Launch // terminal no ENV / RC (for speed in failure scenarios) // <Super> <Shift> <Return> ##
+bindsym $mod+Shift+Return exec terminator -e 'env -i TERM=xterm-256color bash --norc --noprofile'
 
 ## Launch // start dmenu // <Super> d ##
 bindsym $mod+d exec dmenu_run

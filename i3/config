@@ -203,6 +203,7 @@ for_window [class="zoom"] floating enable border normal 5
 for_window [class="zoom" title="Zoom Workplace - Licensed account"] floating disable border none
 ### Meeting window
 for_window [class="zoom" title="Zoom Meeting"] floating disable border none
+for_window [class="zoom" title="Meeting"] floating disable border none
 ### Notifications
 for_window [class="zoom" title="zoom"] border none
 

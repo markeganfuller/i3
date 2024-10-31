@@ -27,10 +27,10 @@ class VMs(i3pystatus.IntervalModule):
         num_vms = self.get_virtualbox_vms() + self.get_libvirt_vms()
         if num_vms > 0:
             response['color'] = self.color_up
-            response['full_text'] = "VMs: %d" % num_vms
+            response['full_text'] = "VM: %d" % num_vms
         else:
             response['color'] = self.color_down
-            response['full_text'] = "VMs"
+            response['full_text'] = "VM"
 
         # pylint: disable=attribute-defined-outside-init
         self.output = response
@@ -51,6 +51,6 @@ class VMs(i3pystatus.IntervalModule):
                 stderr=subprocess.STDOUT
             )
             num_vms = len(num_vms.splitlines())
-        except subprocess.CalledProcessError as e:
+        except subprocess.CalledProcessError:
             num_vms = 0
         return num_vms

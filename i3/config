@@ -12,7 +12,8 @@ set $mod Mod4
 font pango:Dejavu Sans Mono Book 10
 
 # Disable window titles
-new_window 1pixel
+default_border pixel 0
+default_floating_border pixel 0
 
 # Startup Applications
 # Start Nitrogen Wallpaper Manager

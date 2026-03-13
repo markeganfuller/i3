@@ -106,7 +106,7 @@ bindsym $mod+e layout default
 ## Windows - Config // toggle window floating // <Super> <Shift> f ##
 bindsym $mod+Shift+f floating toggle
 ## Windows - Config // toggle window sticky // <Super> <Shift> s ##
-bindsym $mod+Shift+s sticky toggle
+#bindsym $mod+Shift+s sticky toggle
 
 ## Windows - Config // move window to scratchpad // <Super> <Shift> - ##
 bindsym $mod+Shift+minus move scratchpad
@@ -148,6 +148,8 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 ## System // exit i3 and X // <Super> <Shift> e ##
 bindsym $mod+Shift+E exec ~/bin/i3_exit
+
+bindsym $mod+Shift+S exec ~/bin/screenshooter
 
 ## Windows - Resize // enter resize mode // <Super> r ##
 bindsym $mod+r mode "resize"
